@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Attachments;
 use Yii;
 use common\models\Products;
 use common\models\search\ProductsSearch;
@@ -65,13 +66,13 @@ class ProductsController extends Controller
     public function actionCreate()
     {
         $model = new Products();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', "Product successfully added...");
+            return $this->redirect(['update', 'id' => $model->id]);
         }
-
         return $this->render('create', [
             'model' => $model,
+
         ]);
     }
 
@@ -85,13 +86,23 @@ class ProductsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $res_image = false;
+        $res_video = false;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $res_image = Attachments::SaveImagesByProductId($model->id, Yii::$app->request->post(), $_FILES);
+            $res_video = Attachments::SaveVideoByProductId($model->id, Yii::$app->request->post(), $_FILES);
+            if (empty($res_image['error']) &&  empty($res_video['error'])) {
+                Yii::$app->session->setFlash('success', "Product successfully updated...");
+                return $this->redirect(['update', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [
             'model' => $model,
+            'res_image' => $res_image,
+            'res_video' => $res_video,
+            'videos' => Attachments::GetVideosByProductId($id),
+            'images' => Attachments::GetImagesByProductId($id),
         ]);
     }
 

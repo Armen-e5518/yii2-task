@@ -6,7 +6,7 @@ use yii\helpers\Html;
 ?>
 
 <header class="main-header">
-    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">Armath</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">Admin</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
     <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
