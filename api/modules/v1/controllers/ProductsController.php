@@ -32,5 +32,11 @@ class ProductsController extends ActiveController
         return Products::GetAllProducts();
     }
 
-
+    /**
+     * @return array
+     */
+    public function actionGetConfig()
+    {
+        return \Yii::$app->params;
+    }
 }

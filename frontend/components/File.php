@@ -66,7 +66,7 @@ class File extends UploadedFile
             if ($flag && ($width < self::MIN_WIDTH || $height < self::MIN_HEIGHT)) {
                 return [
                     'status' => false,
-                    'error' => 'The image must be at least 400 pixels (width and height). Now '.$width.'X'.$height
+                    'error' => 'The image must be at least 100 pixels (width and height). Now '.$width.'X'.$height
                 ];
             }
             if (move_uploaded_file($file[$g_name]["tmp_name"][$name][$f_name], $config['PHAT'] . $file_name)) {

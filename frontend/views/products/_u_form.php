@@ -58,6 +58,7 @@ $this->registerJsFile('/js/categories.js');
                             <div class="box box-success">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Videos</h3>
+                                    <p>video size should not exaggerate 50MB.</p>
                                     <div class="box-body">
                                         <div class="" id="videos">
                                             <?php if (!empty($videos)): ?>
@@ -112,6 +113,9 @@ $this->registerJsFile('/js/categories.js');
                             <div class="box box-success">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Images</h3>
+                                    <p>Image size should not exaggerate
+                                        20 MB,</p>
+                                    <p>Height and width of the images should be more than 100 px</p>
                                     <div class="box-body">
                                         <div class="" id="images">
                                             <?php if (!empty($images)): ?>

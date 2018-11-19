@@ -2,8 +2,8 @@
 
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php')
-//    require(__DIR__ . '/params.php'),
+    require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php')
 //    require(__DIR__ . '/params-local.php')
 );
 
@@ -45,12 +45,10 @@ return [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/products',   // our country api rule,
                     'tokens' => [
-                        '{id}' => '<id:\\w+>',
-                        '{page_id}' => '<page_id:\\d+>',
-                        '{live}' => '<live:\\d+>',
                     ],
                     'extraPatterns' => [
                         'GET get-all-products' => 'get-all-products',
+                        'GET get-config' => 'get-config',
                     ],
                 ],
                 [
@@ -64,6 +62,7 @@ return [
                         'GET get-product-attachments-by-id/{id}' => 'get-product-attachments-by-id', //actionProductAttachmentsById
                     ],
                 ],
+
                 '<action:[\w\-]+>' => 'api/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 '' => ''

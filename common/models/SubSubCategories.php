@@ -27,7 +27,9 @@ class SubSubCategories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'sub_cat_id'], 'string', 'max' => 255],
+            [['sub_cat_id'], 'default', 'value' => null],
+            [['sub_cat_id'], 'integer'],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 

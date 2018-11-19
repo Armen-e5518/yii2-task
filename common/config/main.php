@@ -9,5 +9,18 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'pgsql:host=localhost;dbname=test',
+            'username' => 'postgres',
+            'password' => '',
+            'charset' => 'utf8',
+            'schemaMap' => [
+                'pgsql'=> [
+                    'class'=>'yii\db\pgsql\Schema',
+                    'defaultSchema' => 'public' //specify your schema here
+                ]
+            ], // PostgreSQL
+        ],
     ],
 ];
