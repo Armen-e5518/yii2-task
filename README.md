@@ -11,7 +11,12 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
 
-
+<h1>Configuration</h1>
+<pre>
+- git clone https://github.com/Armen-e5518/yii2-task.git
+- init  form "0"
+- composer install
+</pre>
 <h1>DB configuration</h1>
 Dump file  file in root directory (dump.sql)
 <p>db config file in "\common\config\main.php"</p>
