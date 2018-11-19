@@ -20,6 +20,9 @@ $this->params['breadcrumbs'][] = 'Update';
         'res_video' => $res_video,
         'videos' => $videos,
         'images' => $images,
+        'cats' => $cats,
+        'sub_cats' => $sub_cats,
+        'sub_sub_cats' => $sub_sub_cats,
     ]) ?>
 
 </div>

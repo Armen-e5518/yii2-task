@@ -39,5 +39,5 @@ use dmstr\widgets\Alert;
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2014-2018 <a href="http://www.e-works.am/">e-works</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2014-2018 <a href="https://github.com/Armen-e5518/yii2-task">Yii2 Task</a>.</strong> All rights reserved.
 </footer>

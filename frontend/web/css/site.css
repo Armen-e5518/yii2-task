@@ -122,4 +122,5 @@ a.desc:after {
 .delete {
     cursor: pointer;
     color: red;
+    float: right;
 }

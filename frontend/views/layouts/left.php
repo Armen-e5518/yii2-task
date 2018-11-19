@@ -14,8 +14,11 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+//                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Products', 'icon' => 'file-code-o', 'url' => ['/products']],
+                    ['label' => 'Categories', 'icon' => 'file-code-o', 'url' => ['/categories']],
+                    ['label' => 'Sub Categories', 'icon' => 'file-code-o', 'url' => ['/sub-categories']],
+                    ['label' => 'Sub Sub Categories', 'icon' => 'file-code-o', 'url' => ['/sub-sub-categories']],
                 ],
             ]
         ) ?>

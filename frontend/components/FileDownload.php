@@ -21,7 +21,8 @@ class FileDownload
     {
         $this->url = $url;
         $this->save_phat = $save_phat;
-        $this->file_name = basename($this->url);
+        $type = strtolower(pathinfo($this->url, PATHINFO_EXTENSION));
+        $this->file_name = md5(microtime(true)) . '.' . $type;
     }
 
     public function save()
@@ -37,6 +38,9 @@ class FileDownload
         curl_close($ch);
         $fp = fopen($this->save_phat . $this->file_name, 'w');
         fwrite($fp, $result);
-        return fclose($fp);
+        if (fclose($fp)) {
+            return $this->file_name;
+        };
+        return false;
     }
 }

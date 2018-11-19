@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace api\modules\v1\models;
 
 use frontend\components\Helper;
 use Yii;
@@ -61,31 +61,9 @@ class Products extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function SaveProductFromExcel($products)
+    public static function GetAllProducts()
     {
-        if (!empty($products)) {
-            foreach ($products as $product) {
-                $model = new self();
-                $model->upc = (string)$product['upc'];
-                $model->case_count = (int)$product['case_count'];
-                $model->name = (string)$product['name'];
-                $model->description = (string)$product['description'];
-                $model->brand = (string)$product['brand'];
-                $model->size = (string)$product['size'];
-                if (!$model->save()) {
-                    return $model->getErrors();
-                } else {
-                    $res_v = Attachments::SaveVideoAttachment($product['video_attachment'], $model->id);
-                    if ($res_v != true) {
-                        return $res_v;
-                    }
-                    $res_v = Attachments::SaveImageAttachment($product['image_attachment'], $model->id);
-                    if ($res_v != true) {
-                        return $res_v;
-                    }
-                }
-            }
-        }
-        return true;
+        return self::find()->asArray()->all();
     }
+
 }

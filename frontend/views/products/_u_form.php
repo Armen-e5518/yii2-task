@@ -9,6 +9,7 @@ use yii\widgets\ActiveForm;
 
 $this->registerJsFile('//ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js');
 $this->registerJsFile('/js/attachments.js');
+$this->registerJsFile('/js/categories.js');
 
 ?>
 
@@ -40,6 +41,9 @@ $this->registerJsFile('/js/attachments.js');
                     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
                     <?= $form->field($model, 'brand')->textInput(['maxlength' => true]) ?>
                     <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model, 'cat_id')->dropDownList($cats, ['id' => 'categories', 'prompt' => 'Select a category']) ?>
+                    <?= $form->field($model, 'sub_cat_id')->dropDownList($sub_cats, ['id' => 'sub_categories', 'prompt' => 'Select a category']) ?>
+                    <?= $form->field($model, 'sub_sub_cat_id')->dropDownList($sub_sub_cats, ['id' => 'sub_sub_categories', 'prompt' => 'Select a category']) ?>
                 </div>
             </div>
         </div>
@@ -64,13 +68,12 @@ $this->registerJsFile('/js/attachments.js');
                                                             <a href="#" class="delete" style="color: red">Delete</a>
                                                         </div>
                                                         <div class="col-md-12">
-                                                            <lable class="control-label">Image</lable>
+                                                            <lable class="control-label">Video</lable>
                                                             <br>
                                                             <?php if (!empty($video['name'])): ?>
-                                                                <img src="/uploads/<?= $video['name'] ?>" width="100%"
-                                                                     alt="">
                                                                 <video width="100%" controls>
-                                                                    <source src="/videos/<?= $video['name'] ?>" type="video/mp4">
+                                                                    <source src="/videos/<?= $video['name'] ?>"
+                                                                            type="video/mp4">
                                                                     Your browser does not support HTML5 video.
                                                                 </video>
                                                             <?php endif; ?>
@@ -88,7 +91,7 @@ $this->registerJsFile('/js/attachments.js');
                                                         <H4>Video 1 </H4>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <lable>Videos</lable>
+                                                        <lable>Video</lable>
                                                         <input class="form-control" value=""
                                                                type="hidden"
                                                                name=videos[index_1][video]>

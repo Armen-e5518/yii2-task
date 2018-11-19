@@ -43,15 +43,25 @@ return [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'v1/facebook',   // our country api rule,
+                    'controller' => 'v1/products',   // our country api rule,
                     'tokens' => [
                         '{id}' => '<id:\\w+>',
                         '{page_id}' => '<page_id:\\d+>',
                         '{live}' => '<live:\\d+>',
                     ],
                     'extraPatterns' => [
-                        'POST get-page-id-by-url' => 'get-page-id-by-url',
-                        'GET  get-page-data-by-page-id/{page_id}/{live}' => 'get-page-data-by-page-id',
+                        'GET get-all-products' => 'get-all-products',
+                    ],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'v1/attachments',   // our country api rule,
+                    'tokens' => [
+                        '{id}' => '<id:\\w+>',
+
+                    ],
+                    'extraPatterns' => [
+                        'GET get-product-attachments-by-id/{id}' => 'get-product-attachments-by-id', //actionProductAttachmentsById
                     ],
                 ],
                 '<action:[\w\-]+>' => 'api/<action>',

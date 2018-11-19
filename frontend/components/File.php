@@ -9,10 +9,15 @@
 namespace frontend\components;
 
 
-class File
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+class File extends UploadedFile
 {
     const IMAGE_MAX_SIZ = 20000000;
     const VIDEO_MAX_SIZ = 50000000;
+
+    const MIN_WIDTH = 100;
+    const MIN_HEIGHT = 100;
 
     const IMAGE_VALID_EXTENSION = [
         "jpg",
@@ -36,6 +41,12 @@ class File
             'PHAT' => $flag ? \Yii::$app->params['images_phat'] : \Yii::$app->params['videos_phat'],
         ];
         if (!empty($file[$g_name]["name"][$name][$f_name])) {
+            if ($flag) {
+                // Get Image Dimension
+                $fileinfo = @getimagesize($file[$g_name]["tmp_name"][$name][$f_name]);
+                $width = $fileinfo[0];
+                $height = $fileinfo[1];
+            }
             $target_file = $config['PHAT'] . basename($file[$g_name]["name"][$name][$f_name]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
             if ($file[$g_name]["size"][$name][$f_name] > $config['MAX_SIZ']) {
@@ -51,6 +62,12 @@ class File
                 ];
             } else {
                 $file_name = md5(microtime(true)) . '.' . $imageFileType;
+            }
+            if ($flag && ($width < self::MIN_WIDTH || $height < self::MIN_HEIGHT)) {
+                return [
+                    'status' => false,
+                    'error' => 'The image must be at least 400 pixels (width and height). Now '.$width.'X'.$height
+                ];
             }
             if (move_uploaded_file($file[$g_name]["tmp_name"][$name][$f_name], $config['PHAT'] . $file_name)) {
                 return [

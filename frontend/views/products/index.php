@@ -17,8 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Products', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Import from Excel <i class="fa fa-file-excel-o" aria-hidden="true"></i>', ['import'], ['class' => 'btn btn-info']) ?>
     </p>
+    <p>
 
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -33,7 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'brand',
             //'size',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+
+                'template' => '{update}{delete}',
+            ]
         ],
     ]); ?>
 </div>

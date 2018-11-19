@@ -3,18 +3,22 @@
 namespace api\modules\v1\controllers;
 
 
-use api\modules\v1\models\Products;
+use api\modules\v1\models\Attachments;
 use yii\rest\ActiveController;
 
 
 /**
- * Facebook Controller API
+ * Class AttachmentsController
+ * @package api\modules\v1\controllers
  */
-class ProductsController extends ActiveController
+class AttachmentsController extends ActiveController
 {
 
-    public $modelClass = 'api\modules\v1\models\Products';
+    public $modelClass = 'api\modules\v1\models\Attachments';
 
+    /**
+     * @return array
+     */
     public function actions()
     {
         $actions = parent::actions();
@@ -23,12 +27,14 @@ class ProductsController extends ActiveController
         return $actions;
     }
 
+
     /**
-     * @return array|null
+     * @param $id
+     * @return array|\yii\db\ActiveRecord[]
      */
-    public function actionGetAllProducts()
+    public function actionGetProductAttachmentsById($id)
     {
-        return Products::GetAllProducts();
+        return Attachments::GetAttachmentsByProductId($id);
     }
 
 
