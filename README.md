@@ -3,6 +3,7 @@
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
     <h1 align="center">Yii 2 Advanced Project Template</h1>
+    <h1 align="center">Armen Test</h1>
     <br>
 </p>
 
@@ -29,6 +30,14 @@ Dump file  file in root directory (dump.sql)
             ], // PostgreSQL
         ],
 </pre>
+<h1>Excel import</h1>
+
+<p>Excel must be such a structure</p>
+
+<img src="https://image.prntscr.com/image/TkymMiFXSFyL_2-JXlMOqA.png" height="500px">
+
+
+
 <h1>Api documentacion</h1>
 
 <p>Get all products</p>
@@ -51,3 +60,8 @@ GET
 <br>
 <img src="https://image.prntscr.com/image/xQSIv9HUSwOuyjCnV97wYQ.png" height="500px">
 
+<h1>Thanks</h1>
+contacts
+<br> 
+phone: +37494322396
+email: armen5518@gmail.com
