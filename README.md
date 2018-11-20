@@ -20,7 +20,7 @@
 </pre>
 
 <h1>DB configuration</h1>
-Dump file  file in root directory (dump.sql)
+Dump   file in root directory (dump.sql)
 <p>db config file in "\common\config\main.php"</p>
 <pre>
   'db' => [
